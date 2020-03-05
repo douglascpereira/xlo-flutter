@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:xlo/blocs/drawer_bloc.dart';
+import 'package:xlo/bloc/drawer_bloc.dart';
 import 'package:xlo/screens/home/home_screen.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -26,7 +26,7 @@ class _BaseScreenState extends State<BaseScreen> {
       _drawerBloc = drawerBloc;
 
       _drawerSubscription?.cancel();
-      _drawerSubscription = _drawerBloc.outPage.listen((page) {
+      _drawerSubscription = _drawerBloc.outPage.listen((page){
         _pageController.jumpToPage(page);
       });
     }

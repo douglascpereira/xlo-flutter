@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:xlo/blocs/drawer_bloc.dart';
+import 'package:xlo/bloc/drawer_bloc.dart';
 import 'package:xlo/common/custom_drawer/widgets/icon_tile.dart';
 
 class IconSection extends StatelessWidget {
@@ -15,15 +15,16 @@ class IconSection extends StatelessWidget {
       _drawerBloc.setPage(page);
     }
 
-    return StreamBuilder(
+
+    return StreamBuilder<int>(
       stream: _drawerBloc.outPage,
-      builder: (context, snapshot){
+      builder: (context, snapshot) {
         return Column(
           children: <Widget>[
             IconTile(
               label: "Anúncios",
               iconData: Icons.list,
-              onTap: (){
+              onTap: () {
                 _setPage(0);
               },
               highlighted: snapshot.data == 0,
@@ -31,7 +32,7 @@ class IconSection extends StatelessWidget {
             IconTile(
               label: "Inserir Anúncio",
               iconData: Icons.edit,
-              onTap: (){
+              onTap: () {
                 _setPage(1);
               },
               highlighted: snapshot.data == 1,
@@ -39,7 +40,7 @@ class IconSection extends StatelessWidget {
             IconTile(
               label: "Chat",
               iconData: Icons.chat,
-              onTap: (){
+              onTap: () {
                 _setPage(2);
               },
               highlighted: snapshot.data == 2,
@@ -47,7 +48,7 @@ class IconSection extends StatelessWidget {
             IconTile(
               label: "Favoritos",
               iconData: Icons.favorite,
-              onTap: (){
+              onTap: () {
                 _setPage(3);
               },
               highlighted: snapshot.data == 3,
@@ -55,7 +56,7 @@ class IconSection extends StatelessWidget {
             IconTile(
               label: "Minha conta",
               iconData: Icons.person,
-              onTap: (){
+              onTap: () {
                 _setPage(4);
               },
               highlighted: snapshot.data == 4,
